@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "history": "^4.7.2",
+    "kea": "^0.27.3",
+    "kea-thunk": "^0.3.2",
     "lodash.chunk": "^4.2.0",
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-helmet": "^5.2.0",
@@ -19,8 +22,10 @@
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1",
     "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.75.1"
+    "semantic-ui-react": "^0.75.1",
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

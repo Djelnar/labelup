@@ -1,28 +1,27 @@
 import React, { Component } from 'react'
 import { Radio, GridRow } from 'semantic-ui-react'
-import {connect} from 'react-redux'
-import { SET_ACCOUNT } from '../actions-types'
 import { Helmet } from 'react-helmet'
+import { appLogic } from '../app-logic'
 
 
 class RadioGroup extends Component {
 
-  handleChange = (e, { value }) => this.props.setAccount(value)
+  handleChange = (e, { value }) => this.actions.SET_ACCOUNT(value)
 
   render() {
-    const {account} = this.props
+    const { currentAccount } = this.props
     return [
       <GridRow key={1}>
         <Helmet>
-          <title>{account}</title>
+          <title>{ currentAccount }</title>
         </Helmet>
-        {account}
+        { currentAccount }
       </GridRow>,
       <GridRow key={2}>
         <Radio
           label="Instagram"
           onChange={this.handleChange}
-          checked={account === 'instagram'}
+          checked={currentAccount === 'instagram'}
           value="instagram"
           name="acctype" />
       </GridRow>,
@@ -30,7 +29,7 @@ class RadioGroup extends Component {
         <Radio
           label="Youtube"
           onChange={this.handleChange}
-          checked={account === 'youtube'}
+          checked={currentAccount === 'youtube'}
           value="youtube"
           name="acctype" />
       </GridRow>
@@ -38,17 +37,4 @@ class RadioGroup extends Component {
   }
 }
 
-const mapStateToProps = ({accounts}, ownProps) => ({
-  account: accounts.account
-})
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  setAccount: payload => {
-    dispatch({
-      type: SET_ACCOUNT,
-      payload
-    })
-  }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(RadioGroup)
+export default appLogic(RadioGroup)
